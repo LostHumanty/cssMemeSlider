@@ -13,6 +13,16 @@ let currentIndex = 0;
 // Устанавливаем первый слайд активным по умолчанию
 buttons[currentIndex].classList.add('active');
 captionElement.textContent = captions[currentIndex];
+captionElement.classList.add('active');
+
+// Функция плавного переключения подписей
+function changeCaption(newIndex) {
+    captionElement.classList.remove('active');
+    setTimeout(() => {
+        captionElement.textContent = captions[newIndex];
+        captionElement.classList.add('active');
+    }, 500); 
+}
 
 // Функция переключения слайдов
 function changeSlide(index) {
@@ -20,7 +30,7 @@ function changeSlide(index) {
     currentIndex = index;
     buttons[currentIndex].classList.add('active');
     sliderContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
-    captionElement.textContent = captions[currentIndex];
+    changeCaption(currentIndex);
 }
 
 // Привязываем события клика к кнопкам
