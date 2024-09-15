@@ -8,18 +8,37 @@
 html, body {
     height: 100%;
     font-size: 16px;
+    background-color: #121212;
+    color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Стили для слайдера */
 .slider {
     display: flex;
     flex-direction: column;
+    width: 90vw;
+    max-width: 1024px;
+    height: 60vh;
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.slider__window {
+    flex: 1;
+    display: flex;
     justify-content: center;
     align-items: center;
-    width: 100vw;
-    height: 60vh;
-    max-width: 1024px;
-    margin: 0 auto;
+    background-color: #1e1e1e; 
     overflow: hidden;
     position: relative;
 }
@@ -27,44 +46,61 @@ html, body {
 .slider__container {
     display: flex;
     width: 100%;
-    transition: transform 0.5s ease-in-out;
+    transition: transform 0.5s ease-in-out; 
 }
 
 .slider__slide {
-    min-width: 100%;
+    min-width: 100%; 
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 }
 
-/* Контролы слайдера */
-.slider__controls {
-    position: absolute;
-    bottom: 10px;
+.slider__window img {
+    max-width: 77%;
+    max-height: 50%;
+    object-fit: contain; 
+}
+
+/* Зона под кнопки и подпись */
+.slider__footer {
     display: flex;
-    justify-content: center;
-    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #252525; 
+    height: 15%;
+}
+
+/* Стиль для подписей */
+.slider__caption {
+    flex: 1;
+    font-size: 1rem;
+    text-align: left;
+}
+
+/* Кнопки управления */
+.slider__controls {
+    display: flex;
+    gap: 1rem;
 }
 
 .slider__control {
-    margin: 0 0.5rem;
-    padding: 1rem;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
+    width: 2rem;
+    height: 2rem;
+    background-color: #444;
     border: none;
+    border-radius: 50%;
     cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s, transform 0.3s;
+    transition: background-color 0.3s;
 }
 
 .slider__control:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-    transform: scale(1.1);
+    background-color: #666;
 }
 
 .slider__control.active {
-    background-color: rgba(0, 0, 0, 1);
+    background-color: #888;
 }
 
 /* Мобильные стили */
@@ -73,11 +109,19 @@ html, body {
         height: 50vh;
     }
 
-    .slider__slide img {
-        max-width: 100%;
+    .slider__footer {
+        flex-direction: column;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    .slider__controls {
+        justify-content: center;
+        order: 1;
     }
 
     .slider__caption {
-        font-size: 1.2rem;
+        text-align: center;
+        order: 2;
     }
 }
