@@ -16,11 +16,11 @@ captionElement.textContent = captions[currentIndex];
 
 // Функция переключения слайдов
 function changeSlide(index) {
-    buttons[currentIndex].classList.remove('active'); // Убираем активный класс с текущей кнопки
-    currentIndex = index; // Обновляем индекс
-    buttons[currentIndex].classList.add('active'); // Добавляем активный класс новой кнопке
-    sliderContainer.style.transform = `translateX(-${currentIndex * 100}%)`; // Сдвигаем контейнер слайдов
-    captionElement.textContent = captions[currentIndex]; // Обновляем подпись
+    buttons[currentIndex].classList.remove('active');
+    currentIndex = index;
+    buttons[currentIndex].classList.add('active');
+    sliderContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+    captionElement.textContent = captions[currentIndex];
 }
 
 // Привязываем события клика к кнопкам
