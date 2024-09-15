@@ -1,0 +1,83 @@
+/* Общие стили */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    font-size: 16px;
+}
+
+/* Стили для слайдера */
+.slider {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 60vh;
+    max-width: 1024px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.slider__container {
+    display: flex;
+    width: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slider__slide {
+    min-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Контролы слайдера */
+.slider__controls {
+    position: absolute;
+    bottom: 10px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.slider__control {
+    margin: 0 0.5rem;
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.slider__control:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    transform: scale(1.1);
+}
+
+.slider__control.active {
+    background-color: rgba(0, 0, 0, 1);
+}
+
+/* Мобильные стили */
+@media (max-width: 500px) {
+    .slider {
+        height: 50vh;
+    }
+
+    .slider__slide img {
+        max-width: 100%;
+    }
+
+    .slider__caption {
+        font-size: 1.2rem;
+    }
+}
